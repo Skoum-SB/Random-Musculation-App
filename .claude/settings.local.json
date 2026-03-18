@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-expo-app@latest musculation-app --template blank-typescript)",
+      "Bash(npx expo install:*)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}
