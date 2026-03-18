@@ -32,7 +32,7 @@ export function WorkoutCard({ template, onStart, onEdit, onDrag, isActive }: Wor
       <TouchableOpacity style={styles.content} onPress={onStart} activeOpacity={0.7}>
         <Text style={styles.name}>{template.name}</Text>
         <Text style={styles.meta}>
-          {template.exercise_count} exercice{template.exercise_count > 1 ? 's' : ''}  💪
+          {template.exercise_count} exercice{template.exercise_count > 1 ? 's' : ''}
         </Text>
         {template.last_session_date && (
           <Text style={styles.lastSession}>

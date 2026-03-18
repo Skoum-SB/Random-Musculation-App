@@ -66,7 +66,6 @@ export default function HomeScreen() {
 
       {templates.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyIcon}>🏋️</Text>
           <Text style={styles.emptyTitle}>Aucun entraînement</Text>
           <Text style={styles.emptySubtitle}>
             Créez votre premier entraînement pour commencer !

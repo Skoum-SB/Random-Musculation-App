@@ -2,6 +2,7 @@ import { View, Text, ScrollView, StyleSheet, Alert, BackHandler, KeyboardAvoidin
 import { useRouter, useLocalSearchParams, Stack } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useAudioPlayer } from 'expo-audio';
 import {
   getTemplateById,
   getTemplateExercises,
@@ -44,6 +45,7 @@ export default function ActiveSessionScreen() {
   // Rest timer
   const [restTimer, setRestTimer] = useState<RestTimer | null>(null);
   const restIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const beepPlayer = useAudioPlayer(require('../../assets/beep.wav'));
 
   // Session elapsed timer
   useEffect(() => {
@@ -176,6 +178,8 @@ export default function ActiveSessionScreen() {
           clearInterval(restIntervalRef.current!);
           restIntervalRef.current = null;
           Vibration.vibrate([0, 300, 150, 300]);
+          beepPlayer.seekTo(0);
+          beepPlayer.play();
           return null;
         }
         return { ...prev, remaining: prev.remaining - 1 };
